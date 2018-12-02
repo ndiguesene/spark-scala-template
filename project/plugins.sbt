@@ -20,10 +20,10 @@
 addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "1.0.0")
 
 // http://github.com/puffnfresh/wartremover
-addSbtPlugin("org.wartremover" % "sbt-wartremover" % "2.3.3")
+addSbtPlugin("org.wartremover" % "sbt-wartremover" % "2.3.7")
 
 // http://github.com/wartremover/wartremover-contrib/
-addSbtPlugin("org.wartremover" % "sbt-wartremover-contrib" % "1.1.0")
+addSbtPlugin("org.wartremover" % "sbt-wartremover-contrib" % "1.2.4")
 
 // http://github.com/danielnixon/extrawarts
 addSbtPlugin("org.danielnixon" % "sbt-extrawarts" % "1.0.3")
@@ -47,7 +47,7 @@ addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.3.4")
 addSbtPlugin("com.eed3si9n" % "sbt-buildinfo" % "0.9.0")
 
 // Adds a `assembly` task to create a fat JAR with all of its dependencies
-addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.7")
+addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.9")
 
 // http://github.com/sbt/sbt-license-report
 addSbtPlugin("com.typesafe.sbt" % "sbt-license-report" % "1.2.0")
@@ -68,7 +68,7 @@ addSbtPlugin("org.ensime" % "sbt-ensime" % "2.5.1")
 
 // A Sbt plugin that fills apiMappings for common Scala libraries.
 // https://github.com/ThoughtWorksInc/sbt-api-mappings/releases
-addSbtPlugin("com.thoughtworks.sbt-api-mappings" % "sbt-api-mappings" % "2.0.2")
+addSbtPlugin("com.thoughtworks.sbt-api-mappings" % "sbt-api-mappings" % "3.0.0")
 
 // A git plugin for SBT https://github.com/sbt/sbt-git
 addSbtPlugin("com.typesafe.sbt" % "sbt-git" % "1.0.0")
