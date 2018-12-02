@@ -3,6 +3,8 @@ Spark Scala Template
 
 [![Build Status](https://travis-ci.org/dbast/spark-scala-template.svg?branch=master)](https://travis-ci.org/dbast/spark-scala-template)
 [![codecov](https://codecov.io/gh/dbast/spark-scala-template/branch/master/graph/badge.svg)](https://codecov.io/gh/dbast/spark-scala-template)
+[![loc](https://tokei.rs/b1/github/dbast/spark-scala-template)](https://github.com/dbast/spark-scala-template)
+[![HitCount](http://hits.dwyl.io/dbast/spark-scala-template.svg)](http://hits.dwyl.io/dbast/spark-scala-template)
 
 Assortment of default settings, best practices, and general goodies for Scala projects.
 
