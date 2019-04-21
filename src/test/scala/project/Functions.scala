@@ -17,15 +17,17 @@ import org.scalatest.{ FlatSpec }
 import project.Functions
 
 class keyValueStringToMapSpec extends FlatSpec {
+  case class StringMap(str: String, map: Map[String, String])
   val testData =
     Seq(
-      ("1=2", Map("1"     -> "2")),
-      ("1=2&3=4", Map("1" -> "2", "3" -> "4")),
-      ("as&df", Map())
+      StringMap("1=2", Map("1"     -> "2")),
+      StringMap("1=2&3=4", Map("1" -> "2", "3" -> "4")),
+      StringMap("as&df", Map())
     )
+
   val sut = Functions.keyValueStringToMap _
 
   "a string" should "allways transform to a map" in {
-    testData.foreach { case (given, expected) => assert(sut(given) === expected) }
+    testData.foreach { case StringMap(given, expected) => assert(sut(given) === expected) }
   }
 }
