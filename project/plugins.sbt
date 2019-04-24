@@ -73,6 +73,10 @@ addSbtPlugin("com.thoughtworks.sbt-api-mappings" % "sbt-api-mappings" % "3.0.0")
 // A git plugin for SBT https://github.com/sbt/sbt-git
 addSbtPlugin("com.typesafe.sbt" % "sbt-git" % "1.0.0")
 
+// sbt dependency tree
+//dependencyTree , dependencyBrowseGraph, dependencyBrowseTree, whatDependsOn 
+addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.9.2")
+
 // disables warning: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 // as explained here https://github.com/sbt/sbt-git
 libraryDependencies += "org.slf4j" % "slf4j-nop" % "1.7.25"

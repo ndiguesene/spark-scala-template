@@ -22,7 +22,7 @@ class keyValueStringToMapSpec extends FlatSpec {
     Seq(
       StringMap("1=2", Map("1"     -> "2")),
       StringMap("1=2&3=4", Map("1" -> "2", "3" -> "4")),
-      StringMap("as&df", Map())
+      StringMap("as&df", Map.empty)
     )
 
   val sut = Functions.keyValueStringToMap _

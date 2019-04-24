@@ -1,10 +1,10 @@
 package weatherapi
 
-import gigahorse._
+final case class Nulle(s: Int)
+/*import gigahorse._
 import support.okhttp.Gigahorse
 
-import scala.concurrent._
-import duration._
+import scala.concurrent._, duration._
 import play.api.libs.json._
 import java.util.concurrent.Executors
 
@@ -33,8 +33,10 @@ object Weather extends LazyLogging {
   private def parse = Gigahorse.asString andThen Json.parse
 }
 
-object Hello extends App with LazyLogging {
-  val w = Await.result(Weather.weather, 5.seconds)
+// $COVERAGE-OFF$Disabling highlighting by default until a workaround for https://issues.scala-lang.org/browse/SI-8596 is found
+object WeatherMain extends App with LazyLogging {
+  val w = Await.result(Weather.weather, 25.seconds)
   logger.info(s"Hello! The weather in Addis Ababa is $w.")
   Weather.http.close()
 }
+// $COVERAGE-ON$*/

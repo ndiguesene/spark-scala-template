@@ -49,7 +49,7 @@ class Processing(spark: SparkSession) extends LazyLogging {
     *
     * @param dagSteps The dag steps to combine
     * @param df The input Dataframe
-    * @param limit If set, Limits amount of combined steps to given number
+    * @param stepLimit If set, Limits amount of combined steps to given number
     * @param debug If true, prints the physical and logical plan
     */
   def combineSteps(dagSteps: Vector[Dataset[Row] => Dataset[Row]],
@@ -104,10 +104,12 @@ class Conf(arguments: Seq[String]) extends ScallopConf(arguments) {
 /**
   * Main entrypoint, parses the command line arguments, gets or creates the
   * SparkSession und starts the DAG processing.
-  *
-  * @param args The unparsed command line arguments
   */
 object Processing extends LazyLogging {
+
+  /**
+    *  @param args The unparsed command line arguments
+    */
   def main(args: Array[String]): Unit = {
     logger.info(s"Starting '${BuildInfo.name}' version '${BuildInfo.version}'")
 

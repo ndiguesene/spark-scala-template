@@ -303,7 +303,7 @@ wartremoverErrors ++= Seq(
   Wart.EitherProjectionPartial,
   Wart.Enumeration,
 //Wart.Equals,
-  Wart.ExplicitImplicitTypes,
+//Wart.ExplicitImplicitTypes,
 //Wart.FinalCaseClass,
   Wart.FinalVal,
   Wart.ImplicitConversion,
@@ -313,7 +313,7 @@ wartremoverErrors ++= Seq(
   Wart.LeakingSealed,
   Wart.MutableDataStructures,
 //Wart.NonUnitStatements,
-  Wart.Nothing,
+//Wart.Nothing,
   Wart.Null,
   Wart.Option2Iterable,
   Wart.OptionPartial,
@@ -498,6 +498,7 @@ coverageFailOnMinimum := false
 coverageOutputCobertura := true
 coverageOutputHTML := true
 coverageOutputXML := true
+coverageExcludedPackages := "weatherapi.WeatherMain.scala;weatherapi.Weather.scala;project.Processing.scala"
 
 /*
  * Scalafmt: http://github.com/lucidsoftware/neo-sbt-scalafmt
