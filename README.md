@@ -38,8 +38,8 @@ Testing
 
 There are several ways to test the code:
 * With local in memory cluster and included data, e.g.:
-  * A whole DAG `./sbt "run -i data/*.gz -o test"`
-  * A reduced DAG `./sbt "run -i data/*.gz -o test --limit 1 --lines-to-show 2"`
+  * A whole DAG `./sbt "run -i data/*.gz -o test/out"`
+  * A reduced DAG `./sbt "run -i data/*.gz -o test/out --limit 1 --lines-to-show 2"`
   * Sometimes setting SPARK_LOCAL_IP="127.0.0.1" is required (depending on the network settings), e.g.
     `SPARK_LOCAL_IP="127.0.0.1" ./sbt ...`
 * Sherlock Holmes mode: Start the scala console via `./sbt console`, there is a
