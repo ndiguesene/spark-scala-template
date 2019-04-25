@@ -1,11 +1,11 @@
 package project
 
 import org.apache.spark.sql.types._
-//import org.apache.spark.sql.functions._
+import org.apache.spark.sql.functions._
 import org.apache.spark.sql.{ DataFrame, Row }
 import org.scalatest.FunSpec
 
-class HelloWorldSpec extends FunSpec with SparkSessionTestWrapper {
+class ExampleWithFunSpec extends FunSpec with SparkSessionTestWrapper {
 
   import spark.implicits._
 
@@ -40,7 +40,7 @@ class HelloWorldSpec extends FunSpec with SparkSessionTestWrapper {
 
   }
 
-  /* it("appends an is_even column to a Dataframe") {
+  it("appends an is_even column to a Dataframe") {
 
     val sourceDF = Seq(
       (1),
@@ -116,5 +116,5 @@ class HelloWorldSpec extends FunSpec with SparkSessionTestWrapper {
     }
 
   }
- */
+
 }

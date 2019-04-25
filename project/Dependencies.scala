@@ -24,15 +24,7 @@ object Dependencies {
     //"org.apache.spark" %% "spark-hive" % sparkVersion % Provided,
     //"org.apache.spark" %% "spark-mllib" % sparkVersion % Provided
   )
-
-  // jackson
-  /*val jackson = Seq(
-    "com.fasterxml.jackson.core" % "jackson-core" % "2.6.5",
-    "com.fasterxml.jackson.core" % "jackson-annotations" % "2.6.5",
-    "com.fasterxml.jackson.core" % "jackson-databind" % "2.6.5",
-    "com.fasterxml.jackson.dataformat" % "jackson-dataformat-yaml" % "2.6.5"  
-  )*/
-
+  
   //others dependencies
   val gigahorse = "com.eed3si9n" %% "gigahorse-okhttp" % "0.3.1"
   //val playJson  = "com.typesafe.play" %% "play-json" % playVersion

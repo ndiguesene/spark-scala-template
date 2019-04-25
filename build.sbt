@@ -1,21 +1,4 @@
-/*
- * Copyright 2011-2016 Marconi Lanna
- * Copyright 2017 Daniel Bast
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-//import dependencies
+//importing dependencies
 import Dependencies._
 
 /*
@@ -30,14 +13,13 @@ enablePlugins(GitVersioning)
 git.useGitDescribe := true
 
 description := "PROJECT DESCRIPTION"
-// organization := "org.example"
-// organizationName := "Example, Inc."
-// organizationHomepage := Some(url("http://example.org"))
-// homepage := Some(url("http://project.org"))
-startYear := Some(2011)
+organization := "com.sonatel"
+organizationName := "Sonatel SA"
+organizationHomepage := Some(url("http://orange-sonatel.com"))
+homepage := Some(url("http://project.org"))
+startYear := Some(2019)
 
 licenses += "Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0.html")
-// "GPLv2" -> url("http://www.gnu.org/licenses/gpl-2.0.html")
 
 /*
  * scalac configuration
@@ -117,57 +99,6 @@ run in Compile := Defaults
   .evaluated
 
 /*
-scalac -language:help
-
-dynamics             Allow direct or indirect subclasses of scala.Dynamic
-existentials         Existential types (besides wildcard types) can be written and inferred
-experimental.macros  Allow macro definition (besides implementation and application)
-higherKinds          Allow higher-kinded types
-implicitConversions  Allow definition of implicit functions called views
-postfixOps           Allow postfix operator notation, such as `1 to 10 toList'
-reflectiveCalls      Allow reflective access to members of structural types
-
- */ /*
-
-scalac -Xlint:help
-
-adapted-args               Warn if an argument list is modified to match the receiver
-by-name-right-associative  By-name parameter of right associative operator
-delayedinit-select         Selecting member of DelayedInit
-doc-detached               A Scaladoc comment appears to be detached from its element
-inaccessible               Warn about inaccessible types in method signatures
-infer-any                  Warn when a type argument is inferred to be `Any`
-missing-interpolator       A string literal appears to be missing an interpolator id
-nullary-override           Warn when non-nullary `def f()' overrides nullary `def f'
-nullary-unit               Warn when nullary methods return Unit
-option-implicit            Option.apply used implicit view
-package-object-classes     Class or object defined in package object
-poly-implicit-overload     Parameterized overloaded implicit methods are not visible as view bounds
-private-shadow             A private field (or class parameter) shadows a superclass field
-stars-align                Pattern sequence wildcard must align with sequence component
-type-parameter-shadow      A local type parameter shadows a type already in scope
-unsound-match              Pattern match may not be typesafe
-
- */ /*
-
-scalac -Yopt:help
-
-compact-locals      Eliminate empty slots in the sequence of local variables
-empty-labels        Eliminate and collapse redundant labels in the bytecode
-empty-line-numbers  Eliminate unnecessary line number information
-inline-global       Inline methods from any source, including classfiles on the compile classpath
-inline-project      Inline only methods defined in the files being compiled
-nullness-tracking   Track nullness / non-nullness of local variables and apply optimizations
-simplify-jumps      Simplify branching instructions, eliminate unnecessary ones
-unreachable-code    Eliminate unreachable code, exception handlers protecting no instructions, debug information of eliminated variables
-l:none              Don't enable any optimizations
-l:default           Enable default optimizations: unreachable-code
-l:method            Enable intra-method optimizations: unreachable-code,simplify-jumps,empty-line-numbers,empty-labels,compact-locals,nullness-tracking
-l:project           Enable cross-method optimizations within the current project: l:method,inline-project
-l:classpath         Enable cross-method optimizations across the entire classpath: l:project,inline-global
- */
-
-/*
  * Managed dependencies
  */
 
@@ -182,57 +113,11 @@ addCommandAlias("pluginUpdates", "; reload plugins; dependencyUpdates; reload re
 
 // Statements executed when starting the Scala REPL (sbt's `console` task)
 initialCommands := """
-import
-  project.Functions._,
-  project.Processing,
-  project.Steps,
-  org.apache.spark.sql.SparkSession,
-  scala.annotation.{switch, tailrec},
-  scala.beans.{BeanProperty, BooleanBeanProperty},
-  scala.collection.JavaConverters._,
-  scala.collection.{breakOut, mutable},
-  scala.concurrent.{Await, ExecutionContext, Future},
-  scala.concurrent.ExecutionContext.Implicits.global,
-  scala.concurrent.duration._,
-  scala.language.experimental.macros,
-  scala.math._,
-  scala.reflect.macros.blackbox,
-  scala.util.{Failure, Random, Success, Try},
-  scala.util.control.NonFatal,
-  java.io._,
-  java.net._,
-  java.nio.file._,
-  java.time.{Duration => jDuration, _},
-  java.lang.System.{currentTimeMillis => now},
-  java.lang.System.nanoTime
-
-val sparkNodes = sys.env.getOrElse("SPARK_NODES", "local[*]")
-
-def desugarImpl[T](c: blackbox.Context)(expr: c.Expr[T]): c.Expr[Unit] = {
-  import c.universe._, scala.io.AnsiColor.{BOLD, GREEN, RESET}
-
-  val exp = show(expr.tree)
-  val typ = expr.actualType.toString takeWhile '('.!=
-
-  println(s"$exp: $BOLD$GREEN$typ$RESET")
-  reify { (): Unit }
-}
-
-def desugar[T](expr: T): Unit = macro desugarImpl[T]
-
-var _sparkInitialized = false
-@transient lazy val spark = {
-  _sparkInitialized = true
-  SparkSession.builder
-    .master(sparkNodes)
-    .appName("Console test")
-    .getOrCreate()
-}
-@transient lazy val sc = spark.sparkContext
+print('initCommand in sbt console')
 """
 
 cleanupCommands in console := """
-if (_sparkInitialized) {spark.stop()}
+print('cleanupCommand in sbt console')
 """
 
 // Do not exit sbt when Ctrl-C is used to stop a running app
